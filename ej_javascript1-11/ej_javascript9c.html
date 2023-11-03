@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 9 c</title>
+  </head>
+
+  <body>
+    <button id="rj" onclick="cambiaColor('red')">Rojo</button>
+    <button id="vd" onclick="cambiaColor('green')">Verde</button>
+    <button id="az" onclick="cambiaColor('blue')">Azul</button>
+    <button id="am" onclick="cambiaColor('yellow')">Amarillo</button>
+    <button id="mas" onclick="cambiaMas()">Mas</button>
+    <script>
+      function cambiaColor(color) {
+        document.bgColor = color;
+      }
+
+      function cambiaMas() {
+        let color = document.bgColor;
+        switch (color) {
+          case "red":
+            document.bgColor = "green";
+            break;
+          case "green":
+            document.bgColor = "blue";
+            break;
+          case "blue":
+            document.bgColor = "yellow";
+            break;
+          case "yellow":
+          default:
+            document.bgColor = "red";
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

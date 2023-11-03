@@ -1,0 +1,9 @@
+#izquierda{
+    width: 50%;
+    text-align: end;
+    float: left;
+}
+select{
+    margin-top: 5%;
+    float: right;
+}

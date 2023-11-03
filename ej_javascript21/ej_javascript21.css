@@ -1,0 +1,19 @@
+.mayor{
+    background-color: red;
+    color: black;
+}
+.menor{
+    background-color: green;
+    color: black;
+}
+table{
+    border: 1px solid black;
+    border-spacing: 0;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+td{
+    background-color: black;
+    color: aliceblue;
+}

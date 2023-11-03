@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewsport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 5</title>
+    </head>
+    <body>
+
+        <script>
+            
+            var numero = parseInt (prompt ("introduce un numero:"));
+            var num = parseInt (prompt ("introduce el tamaño:"));
+            var color = prompt ("introduce el color:");
+
+            document.write("<h1> TABLA DE MULTIPLICAR DEL " + numero + "</h1>");
+
+            for ( index = 0; index <= 10; index++) {
+                document.write("<p style='font-size:", num ,"px;color:", color ,";'>", numero + " X " + index + " = " + (numero * index), "</p>");
+            }
+
+        </script>
+
+    </body>
+</html>

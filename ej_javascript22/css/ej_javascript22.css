@@ -1,0 +1,16 @@
+ul{
+    padding: 5px;
+    margin: 0;
+    width: 130px;
+    list-style: none;
+    background-color: black;
+    position: fixed;
+    left: 15px;
+    top: 100px;
+}
+li{
+    padding: .2em 0 .2em 1.5em;
+    display: block;
+    text-decoration: none;
+    background: #F4F4F4;
+}

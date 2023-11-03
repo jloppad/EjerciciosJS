@@ -1,0 +1,18 @@
+#izquierda{
+    width: 50%;
+    text-align: end;
+    float: left;
+}
+#derecha{
+    width: 50%;
+    float: right;
+}
+input[type=button]{
+    float: left;
+    margin-top: 5%;
+    margin-left: 3%;
+}
+select{
+    margin-top: 5%;
+    float: right;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio 10</title>
+  <style>
+    .crear {
+      display: block;
+      margin: auto;
+    }
+
+    .supder {
+      float: right;
+    }
+
+    .infder {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+    }
+
+    .infizq {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="crear" onclick="crearVentana()">Crear Ventana</button>
+  <button onclick="moverVentana(0,0)">Superior-Izquierda</button>
+  <button class="supder" onclick="moverVentana(screen.availWidth - 170,0)">Superior-Derecha</button>
+  <button class="infder" onclick="moverVentana(screen.availWidth - 170,screen.availHeight)">Inferior-Derecha</button>
+  <button class="infizq" onclick="moverVentana(0,screen.availHeight)">Inferior-Izquierda</button>
+
+  <script>
+    let ventana;
+
+    function crearVentana() {
+      ventana = window.open(
+        "",
+        "ventana",
+        "height=100,width=100,alwaysRaised=yes"
+      );
+      ventana.document.write("<h3>Hola</h3>");
+      ventana.document.bgColor = "orange";
+
+      ventana.moveTo(screen.availWidth / 2 - 100, screen.availHeight / 2 - 100);
+
+    }
+
+    function moverVentana(x, y) {
+      ventana.moveTo(x, y);
+      ventana.focus();
+    }
+  </script>
+</body>
+
+</html>

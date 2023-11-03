@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewsport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        var numero = parseInt(prompt("introduce un numero:"));
+
+        document.write("<table width='1000'><tr><td colspan=5><h1> TABLA DE MULTIPLICAR DEL " + numero + "</h1></td></tr>");
+
+        var color;
+
+        for (i = 0; i <= 10; i++) {
+
+            if (i % 2 === 0) {
+                color = "Palegreen";
+            } else {
+                color = "Lightskyblue";
+            }
+
+            document.write("<tr style='background-color:", color, ";'>");
+            document.write("<td>", numero, " </td> <td> X </td> <td>", i, "</td> <td> = </td> <td style='color:red;'>", (numero * i), "</td>");
+            document.write("</tr>");
+        }
+
+        document.write("</table>");
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewsport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 6</title>
+        <style>
+            table,td{
+              border:1px solid black;
+              text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+
+        <script>
+            
+            var numero = parseInt (prompt ("introduce un numero:"));
+
+            document.write("<table width='1000'> <tr> <td colspan=5> <h1> TABLA DE MULTIPLICAR DEL " + numero + "</h1> </td> </tr>");
+
+            for ( index = 0; index <= 10; index++) {
+                document.write("<tr>");
+                document.write("<td>", numero ," </td> <td> X </td> <td> ", index ,"</td> <td> = </td> <td>", (numero * index) ,"</td>");
+                document.write("</tr>");
+            }
+           
+            document.write("</table>");
+
+        </script>
+
+    </body>
+</html>

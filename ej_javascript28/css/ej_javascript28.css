@@ -1,0 +1,14 @@
+#vacaciones {
+  justify-content: center;
+}
+
+#vacaciones p {
+  font-size: 300%;
+  font-family: Arial, sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+#vacaciones img {
+    width: 5%;
+}

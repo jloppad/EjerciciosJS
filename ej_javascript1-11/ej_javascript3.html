@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewsport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+
+    <script>
+
+        var a = parseInt(prompt("introduce el valor de a:"));
+        var b = parseInt(prompt("introduce el valor de b:"));
+        var c = parseInt(prompt("introduce el valor de c:"));
+        var pr; //Primer resultado
+        var sr; //Segundo resultado
+
+        document.write("<h1> Ecuacion de segundo grado </h1>");
+
+        var rc = Math.sqrt(Math.pow(b, 2) - 4 * a * c); // Calcula la raiz cuadrada
+
+        if (rc > 0) {
+
+            document.write("<h2> Caso Δ > 0 </h2>");
+
+            pr = (-b + rc) / (2 * a);
+            sr = (-b - rc) / (2 * a);
+
+            document.write("<h3> Dos posibles soluciones distintas</h3>");
+            document.write("X = " + pr, "<br />");
+            document.write("X = " + sr, "<br />");
+
+        } else if (rc == 0) {
+
+            document.write("<h2> Caso Δ = 0 </h2>");
+
+            pr = (-b + rc) / (2 * a);
+            sr = (-b - rc) / (2 * a);
+
+            document.write("<h3> Dos posibles soluciones iguales</h3>");
+            document.write("X = " + pr, "<br />");
+            document.write("X = " + sr, "<br />");
+
+        } else {
+
+            document.write("<h2> Caso Δ < 0 </h2>");
+            document.write("<h3> No tiene solucion </h3>");
+
+        }
+
+    </script>
+
+</body>
+
+</html>

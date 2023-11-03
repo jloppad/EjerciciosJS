@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+    background-color: black;
+}
+
+#imagen {
+    width: 30%;
+    height: 20%;
+}
+
+#subtitulo {
+    font-size: 200%;
+    color: blue;
+}
