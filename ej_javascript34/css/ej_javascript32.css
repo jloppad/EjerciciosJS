@@ -1,0 +1,29 @@
+body {
+    background-color: #20204b;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#formulario {
+    background-color: #baf384;
+    color: #0e530e;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #808080;
+}
+
+fieldset {
+    border: 1px solid #808080;
+}
+
+input.correcto {
+    color: #26a826;
+}
+
+input.erroneo {
+    color: #FF0000;
+    font-weight: bold;
+    background-color: #f79494;
+}
