@@ -55,26 +55,27 @@ function main() {
     let textoOpciones = anio;
     let idSelect = "Anionacimiento"
 
-    let textoSelect = crearSelect(textoOpcional, idSelect, numeroOpciones, idOpciones, textoOpciones);
+    let textoSelect = crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoOpcional);
     escribirSegunID("anionac",textoSelect);
 
 }
 
-function crearSelect(textoOpcional, idSelect, numeroOpciones, idOpciones, textoOpciones) {
-    let texto;
+function crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoOpcional = undefined) {
+    let texto = "";
 
     if (numeroOpciones == idOpciones.length && numeroOpciones == textoOpciones.length) {
-        texto = `<label for="${idSelect}">`;
+        
         if (textoOpcional != undefined) {
             texto += textoOpcional;
         }
+        
         texto += `<select id="${idSelect}">`;
 
         for (let i = 0; i < numeroOpciones; i++) {
             texto += `<option id="${idOpciones[i]}">${textoOpciones[i]}</option>`;
         }
 
-        texto += "</select></label>";
+        texto += "</select>";
 
     } else {
         texto = "Error al crear el select";
