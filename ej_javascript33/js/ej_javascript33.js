@@ -45,15 +45,14 @@ function main() {
     let primerAnio = 1965;
 
     for (let i = primerAnio; i <= anioActual; i++) {
-        anio[i-primerAnio] = i;
-        
+        anio.push(i);
     }
 
     let textoOpcional = "Año nacimineto: ";
     let numeroOpciones = 1 + anioActual - primerAnio;
     let idOpciones = anio;
     let textoOpciones = anio;
-    let idSelect = "Anionacimiento"
+    let idSelect = "Anionacimiento";
 
     let textoSelect = crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoOpcional);
     escribirSegunID("anionac",textoSelect);
@@ -78,7 +77,7 @@ function crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoO
         texto += "</select>";
 
     } else {
-        texto = "Error al crear el select";
+        texto = "Error al crear el select (Debe haber un id por cada option)";
     }
     
     return texto;

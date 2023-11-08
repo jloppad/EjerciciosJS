@@ -43,17 +43,16 @@ function main() {
     let primerAnio = 1965;
 
     for (let i = primerAnio; i <= anioActual; i++) {
-        anio[i-primerAnio] = i;
-        
+        anio.push(i);
     }
 
     let textoOpcional = "Año nacimineto: ";
     let numeroOpciones = 1 + anioActual - primerAnio;
     let idOpciones = anio;
     let textoOpciones = anio;
-    let idSelect = "Anionacimiento"
+    let idSelect = "Anionacimiento";
 
-    let textoSelect = crearSelect(textoOpcional, idSelect, numeroOpciones, idOpciones, textoOpciones);
+    let textoSelect = crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoOpcional);
     escribirSegunID("anionac",textoSelect);
 
 }
@@ -77,22 +76,25 @@ function comprobarEnvio(bonton, correcto, camposAComprobar) {
     
 }
 
-function crearSelect(textoOpcional, idSelect, numeroOpciones, idOpciones, textoOpciones) {
-    let texto;
+function crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoOpcional = undefined) {
+    let texto = "";
 
     if (numeroOpciones == idOpciones.length && numeroOpciones == textoOpciones.length) {
-        texto = `<label for="${idSelect}">`;
-        texto += textoOpcional;
+        
+        if (textoOpcional != undefined) {
+            texto += textoOpcional;
+        }
+        
         texto += `<select id="${idSelect}">`;
 
         for (let i = 0; i < numeroOpciones; i++) {
             texto += `<option id="${idOpciones[i]}">${textoOpciones[i]}</option>`;
         }
 
-        texto += "</select></label>";
+        texto += "</select>";
 
     } else {
-        texto = "Error al crear el select";
+        texto = "Error al crear el select (Debe haber un id por cada option)";
     }
     
     return texto;
