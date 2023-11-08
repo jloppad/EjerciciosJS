@@ -65,7 +65,9 @@ function crearSelect(textoOpcional, idSelect, numeroOpciones, idOpciones, textoO
 
     if (numeroOpciones == idOpciones.length && numeroOpciones == textoOpciones.length) {
         texto = `<label for="${idSelect}">`;
-        texto += textoOpcional;
+        if (textoOpcional != undefined) {
+            texto += textoOpcional;
+        }
         texto += `<select id="${idSelect}">`;
 
         for (let i = 0; i < numeroOpciones; i++) {
