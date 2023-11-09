@@ -76,34 +76,6 @@ function comprobarEnvio(bonton, correcto, camposAComprobar) {
     
 }
 
-function crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoOpcional = undefined) {
-    let texto = "";
-
-    if (numeroOpciones == idOpciones.length && numeroOpciones == textoOpciones.length) {
-        
-        if (textoOpcional != undefined) {
-            texto += textoOpcional;
-        }
-        
-        texto += `<select id="${idSelect}">`;
-
-        for (let i = 0; i < numeroOpciones; i++) {
-            texto += `<option id="${idOpciones[i]}">${textoOpciones[i]}</option>`;
-        }
-
-        texto += "</select>";
-
-    } else {
-        texto = "Error al crear el select (Debe haber un id por cada option)";
-    }
-    
-    return texto;
-}
-
-function escribirSegunID(id, texto) {
-    document.querySelector(`#${id}`).innerHTML = texto;
-}
-
 function ponerClase(correcto, campo) {
     campo.classList.remove("correcto", "erroneo");
     if (!correcto) {
