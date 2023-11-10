@@ -27,11 +27,8 @@ function main() {
         ponerClase(correcto[2], contrasenia);
         ponerClase(correcto[3], repcontrasenia);
 
-        for (let i = 0; i < correcto.length; i++) {
-            if (!correcto[i]) {
-                envia = false;
-            }
-            
+        if (correcto.includes(false)) {
+            envia = false;
         }
   
         if (envia) {
@@ -41,7 +38,7 @@ function main() {
     });
 
     let anio = [];
-    let anioActual = 2023;
+    let anioActual = new Date().getFullYear();
     let primerAnio = 1965;
 
     for (let i = primerAnio; i <= anioActual; i++) {
@@ -49,44 +46,17 @@ function main() {
     }
 
     let textoOpcional = "Año nacimineto: ";
-    let numeroOpciones = 1 + anioActual - primerAnio;
     let idOpciones = anio;
     let textoOpciones = anio;
     let idSelect = "Anionacimiento";
 
-    let textoSelect = crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoOpcional);
+    let textoSelect = crearSelect(idSelect, idOpciones, textoOpciones, textoOpcional);
     escribirSegunID("anionac",textoSelect);
 
 }
-
-function crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoOpcional = undefined) {
-    let texto = "";
-
-    if (numeroOpciones == idOpciones.length && numeroOpciones == textoOpciones.length) {
-        
-        if (textoOpcional != undefined) {
-            texto += textoOpcional;
-        }
-        
-        texto += `<select id="${idSelect}">`;
-
-        for (let i = 0; i < numeroOpciones; i++) {
-            texto += `<option id="${idOpciones[i]}">${textoOpciones[i]}</option>`;
-        }
-
-        texto += "</select>";
-
-    } else {
-        texto = "Error al crear el select (Debe haber un id por cada option)";
-    }
-    
-    return texto;
-}
-
-function escribirSegunID(id, texto) {
-    document.querySelector(`#${id}`).innerHTML = texto;
-}
-
+/*
+    Le pone una clase erroneo (se indica que es un dato erroneo) o correcto al campo pasado 
+*/
 function ponerClase(correcto, campo) {
     campo.classList.remove("correcto", "erroneo");
     if (!correcto) {
@@ -99,13 +69,13 @@ function ponerClase(correcto, campo) {
 }
 
 function comprobar(campo, expresion) {
-    let clase = true;
+    let correcto = true;
 
     if(campo.match(expresion)==null){
-        clase = false;
+        correcto = false;
     }
 
-    return clase;
+    return correcto;
 }
 
 document.addEventListener("DOMContentLoaded", main);

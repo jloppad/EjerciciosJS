@@ -7,8 +7,10 @@ function main() {
     const contrasenia = formulario.querySelector("#contrasenia");
     const repcontrasenia = formulario.querySelector("#repcontrasenia");
 
+
     const camposAComprobar = 4;
     let correcto = [];
+    let datos = {};
 
     nombre.addEventListener("blur", function () {
         correcto[0] = comprobar(nombre.value, "^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$");
@@ -31,15 +33,26 @@ function main() {
     repcontrasenia.addEventListener("blur", function () {
         if (contrasenia.value == repcontrasenia.value) {
             correcto[3] = comprobar(repcontrasenia.value, ".");
-        }else {
+        } else {
             correcto[3] = false;
         }
         ponerClase(correcto[3], repcontrasenia);
         comprobarEnvio(enviar, correcto, camposAComprobar);
     });
 
+    enviar.addEventListener("click", function () {
+        let nuevo = datos.push({
+            "nombre": nombre.value,
+            "alias": alias.value,
+            "contrasenia": contrasenia.value,
+            "repcontrasenia": repcontrasenia.value
+        });
+        console.log(nuevo);
+        console.log(datos);
+    });
+
     let anio = [];
-    let anioActual = new Date().getFullYear();
+    let anioActual = 2023;
     let primerAnio = 1965;
 
     for (let i = primerAnio; i <= anioActual; i++) {
@@ -47,13 +60,24 @@ function main() {
     }
 
     let textoOpcional = "Año nacimineto: ";
+    let numeroOpciones = 1 + anioActual - primerAnio;
     let idOpciones = anio;
     let textoOpciones = anio;
     let idSelect = "Anionacimiento";
 
-    let textoSelect = crearSelect(idSelect, idOpciones, textoOpciones, textoOpcional);
-    escribirSegunID("anionac",textoSelect);
+    let textoSelect = crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoOpcional);
+    escribirSegunID("anionac", textoSelect);
 
+}
+
+function guardarDatos(datos, nombre, alias, contrasenia, repcontrasenia) {
+    datos = ({
+        "nombre": nombre,
+        "alias": alias,
+        "contrasenia": contrasenia,
+        "repcontrasenia": repcontrasenia
+    });
+    console.log(datos);
 }
 
 function comprobarEnvio(boton, correcto, camposAComprobar) {
@@ -79,7 +103,7 @@ function ponerClase(correcto, campo) {
         campo.classList.add("erroneo");
         campo.value = "";
         campo.placeholder = "dato erroneo";
-    } else{
+    } else {
         campo.classList.add("correcto");
     }
 }
@@ -87,7 +111,7 @@ function ponerClase(correcto, campo) {
 function comprobar(campo, expresion) {
     let clase = true;
 
-    if(campo.match(expresion)==null){
+    if (campo.match(expresion) == null) {
         clase = false;
     }
 

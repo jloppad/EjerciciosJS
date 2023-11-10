@@ -3,11 +3,11 @@ function escribirSegunID(id, texto) {
     document.querySelector(`#${id}`).innerHTML = texto;
 }
 
-// Retorna un string con el texto necesario para crear un select
-function crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoOpcional = undefined) {
+// Retorna un string con el texto necesario para crear un select relleno
+function crearSelect(idSelect, arrayIdOpciones, arrayTextoOpciones, textoOpcional = undefined) {
     let texto = "";
 
-    if (numeroOpciones == idOpciones.length && numeroOpciones == textoOpciones.length) {
+    if (arrayIdOpciones.length == arrayTextoOpciones.length) {
         
         if (textoOpcional != undefined) {
             texto += textoOpcional;
@@ -15,8 +15,8 @@ function crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoO
         
         texto += `<select id="${idSelect}">`;
 
-        for (let i = 0; i < numeroOpciones; i++) {
-            texto += `<option id="${idOpciones[i]}">${textoOpciones[i]}</option>`;
+        for (let i = 0; i < arrayTextoOpciones.length; i++) {
+            texto += `<option id="${arrayIdOpciones[i]}">${arrayTextoOpciones[i]}</option>`;
         }
 
         texto += "</select>";
