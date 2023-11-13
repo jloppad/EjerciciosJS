@@ -27,3 +27,27 @@ function crearSelect(idSelect, arrayIdOpciones, arrayTextoOpciones, textoOpciona
     
     return texto;
 }
+
+// Retorna un string con el texto necesario para crear varios checkboxs cuadriculados
+function crearChecks(idTable, arrayIdChecks, arrayTextoChecks) {
+    let texto = "";
+
+    if (arrayIdChecks.length == arrayTextoChecks.length) {
+        
+        texto += `<table id="${idTable}"><tr>`;
+
+        for (let i = 0; i < arrayTextoChecks.length; i++) {
+            if (Math.ceil(arrayTextoChecks.length/2) == i){
+                texto += "</tr><tr>";
+            }
+            texto += `<td><input type="checkbox" id="${arrayIdChecks[i]}"> ${arrayTextoChecks[i]}</td>`;
+        }
+
+        texto += "</tr></table>";
+
+    } else {
+        texto = "Error al crear los checksbox (Debe haber un id por cada checkbox)";
+    }
+    
+    return texto;
+}

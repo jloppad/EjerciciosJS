@@ -7,6 +7,29 @@ function main() {
     const contrasenia = formulario.querySelector("#contrasenia");
     const repcontrasenia = formulario.querySelector("#repcontrasenia");
 
+    let anio = [];
+    let anioActual = new Date().getFullYear();
+    let primerAnio = 1965;
+
+    for (let i = primerAnio; i <= anioActual; i++) {
+        anio.push(i);
+    }
+
+    let textoOpcional = "Año nacimineto: ";
+    let idOpciones = anio;
+    let textoOpciones = anio;
+    let idSelect = "Anionacimiento";
+
+    let idTable = "tableafi";
+    let arrayIdChecks = ["musica","cine","lectura","informatica","television","videojuegos"];
+    let arrayTextoChecks = ["Música","Cine","Lectura","Informática","Televisión","Videojuegos"];
+
+    let textoSelect = crearSelect(idSelect, idOpciones, textoOpciones, textoOpcional);
+    let textoCheck = crearChecks(idTable, arrayIdChecks, arrayTextoChecks);
+
+    escribirSegunID("anionac",textoSelect);
+    escribirSegunID("checksafi",textoCheck);
+
     const camposAComprobar = 4;
     let correcto = [];
 
@@ -37,22 +60,6 @@ function main() {
         ponerClase(correcto[3], repcontrasenia);
         comprobarEnvio(enviar, correcto, camposAComprobar);
     });
-
-    let anio = [];
-    let anioActual = new Date().getFullYear();
-    let primerAnio = 1965;
-
-    for (let i = primerAnio; i <= anioActual; i++) {
-        anio.push(i);
-    }
-
-    let textoOpcional = "Año nacimineto: ";
-    let idOpciones = anio;
-    let textoOpciones = anio;
-    let idSelect = "Anionacimiento";
-
-    let textoSelect = crearSelect(idSelect, idOpciones, textoOpciones, textoOpcional);
-    escribirSegunID("anionac",textoSelect);
 
 }
 
