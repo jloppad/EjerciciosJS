@@ -7,10 +7,33 @@ function main() {
     const contrasenia = formulario.querySelector("#contrasenia");
     const repcontrasenia = formulario.querySelector("#repcontrasenia");
 
+    let anio = [];
+    let anioActual = new Date().getFullYear();
+    let primerAnio = 1965;
+
+    for (let i = primerAnio; i <= anioActual; i++) {
+        anio.push(i);
+    }
+
+    let textoOpcional = "Año nacimineto: ";
+    let idOpciones = anio;
+    let textoOpciones = anio;
+    let idSelect = "Anionacimiento";
+
+    let idTable = "tableafi";
+    let arrayIdChecks = ["musica","cine","lectura","informatica","television","videojuegos"];
+    let arrayTextoChecks = ["Música","Cine","Lectura","Informática","Televisión","Videojuegos"];
+
+    let textoSelect = crearSelect(idSelect, idOpciones, textoOpciones, textoOpcional);
+    let textoCheck = crearChecks(idTable, arrayIdChecks, arrayTextoChecks);
+
+    escribirSegunID("anionac",textoSelect);
+    escribirSegunID("checksafi",textoCheck);
 
     const camposAComprobar = 4;
     let correcto = [];
-    let datos = {};
+
+    let arrayPropiedades = ["nombre", "contrasenia"]; 
 
     nombre.addEventListener("blur", function () {
         correcto[0] = comprobar(nombre.value, "^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$");
@@ -22,6 +45,13 @@ function main() {
         correcto[1] = comprobar(alias.value, "^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$");
         ponerClase(correcto[1], alias);
         comprobarEnvio(enviar, correcto, camposAComprobar);
+        if (buscarCookie(alias.value)) {
+            let cookie = consultarCookie(alias.value);
+            let nombreCookie = consultarDatoCookie(cookie, "nombre");
+            let contraseñaCookie = consultarDatoCookie(cookie, "contrasenia");
+            nombre.value = nombreCookie;
+            contrasenia.value = contraseñaCookie;
+        }
     });
 
     contrasenia.addEventListener("blur", function () {
@@ -41,43 +71,11 @@ function main() {
     });
 
     enviar.addEventListener("click", function () {
-        let nuevo = datos.push({
-            "nombre": nombre.value,
-            "alias": alias.value,
-            "contrasenia": contrasenia.value,
-            "repcontrasenia": repcontrasenia.value
-        });
-        console.log(nuevo);
-        console.log(datos);
+        let arrayValores = [nombre.value, contrasenia.value];
+        let textoCookie = crearCookie(alias.value, arrayPropiedades, arrayValores);
+        document.cookie = textoCookie;
     });
 
-    let anio = [];
-    let anioActual = 2023;
-    let primerAnio = 1965;
-
-    for (let i = primerAnio; i <= anioActual; i++) {
-        anio.push(i);
-    }
-
-    let textoOpcional = "Año nacimineto: ";
-    let numeroOpciones = 1 + anioActual - primerAnio;
-    let idOpciones = anio;
-    let textoOpciones = anio;
-    let idSelect = "Anionacimiento";
-
-    let textoSelect = crearSelect(idSelect, numeroOpciones, idOpciones, textoOpciones, textoOpcional);
-    escribirSegunID("anionac", textoSelect);
-
-}
-
-function guardarDatos(datos, nombre, alias, contrasenia, repcontrasenia) {
-    datos = ({
-        "nombre": nombre,
-        "alias": alias,
-        "contrasenia": contrasenia,
-        "repcontrasenia": repcontrasenia
-    });
-    console.log(datos);
 }
 
 function comprobarEnvio(boton, correcto, camposAComprobar) {
