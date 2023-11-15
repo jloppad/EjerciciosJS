@@ -28,7 +28,7 @@ function crearSelect(idSelect, arrayIdOpciones, arrayTextoOpciones, textoOpciona
     return texto;
 }
 
-// Retorna un string con el texto necesario para crear varios checkboxs cuadriculados
+// Retorna un string con el texto necesario para crear varios checkboxs cuadriculados en una tabla
 function crearChecks(idTable, arrayIdChecks, arrayTextoChecks) {
     let texto = "";
 
@@ -53,14 +53,14 @@ function crearChecks(idTable, arrayIdChecks, arrayTextoChecks) {
 }
 
 // Retorna un string con el texto necesario para poder crear una cookie con una clave y dos arrays para meter valores segun la propiedad que quieras
-// Ej: "clave= Propiedad:Valor, Propiedad:Valor,"
+// Ej: "clave= Dato:Valor, Dato:Valor"
 function crearCookie(clave, arrayDatos, arrayValores) {
     let cookie = "";
 
     if (arrayDatos.length == arrayValores.length) {
-        cookie += clave + "=";
+        cookie += clave + "="; //
         for (let i = 0; i < arrayValores.length; i++) {
-            cookie += " " + arrayDatos[i] + ":" + arrayValores[i];
+            cookie += " " + arrayDatos[i] + ":" + arrayValores[i]; //
             if (arrayValores.length - 1 != i) {
                 cookie += ",";
             }
@@ -101,7 +101,7 @@ function consultarDatoCookie(cookie, dato) {
     let datos = cookie.split(", ");
     let valor;
     for (let i = 0; i < datos.length; i++) {
-        if (datos[i].includes(dato)) {
+        if (datos[i].includes(dato)) { //
             valor = datos[i].split(":");
         }
     }

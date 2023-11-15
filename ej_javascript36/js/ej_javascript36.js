@@ -1,4 +1,8 @@
+
+// javi= nombre:javier, contraseña:123
+
 function main() {
+    const camposAComprobar = 4;
     const enviar = document.querySelector('#enviar');
     const formulario = document.querySelector('#formu');
 
@@ -29,8 +33,7 @@ function main() {
 
     escribirSegunID("anionac",textoSelect);
     escribirSegunID("checksafi",textoCheck);
-
-    const camposAComprobar = 4;
+    
     let correcto = [];
 
     let arrayPropiedades = ["nombre", "contrasenia"]; 

@@ -1,4 +1,5 @@
 function main() {
+    const camposAComprobar = 4;
     const enviar = document.querySelector('#enviar');
     const formulario = document.querySelector('#formu');
 
@@ -21,16 +22,15 @@ function main() {
     let idSelect = "Anionacimiento";
 
     let idTable = "tableafi";
-    let arrayIdChecks = ["musica","cine","lectura","informatica","television","videojuegos"];
-    let arrayTextoChecks = ["Música","Cine","Lectura","Informática","Televisión","Videojuegos"];
+    let arrayIdChecks = ["musica", "cine", "lectura", "informatica", "television", "videojuegos"];
+    let arrayTextoChecks = ["Música", "Cine", "Lectura", "Informática", "Televisión", "Videojuegos"];
 
     let textoSelect = crearSelect(idSelect, idOpciones, textoOpciones, textoOpcional);
     let textoCheck = crearChecks(idTable, arrayIdChecks, arrayTextoChecks);
 
-    escribirSegunID("anionac",textoSelect);
-    escribirSegunID("checksafi",textoCheck);
+    escribirSegunID("anionac", textoSelect);
+    escribirSegunID("checksafi", textoCheck);
 
-    const camposAComprobar = 4;
     let correcto = [];
 
     nombre.addEventListener("blur", function () {
@@ -54,7 +54,7 @@ function main() {
     repcontrasenia.addEventListener("blur", function () {
         if (contrasenia.value == repcontrasenia.value) {
             correcto[3] = comprobar(repcontrasenia.value, ".");
-        }else {
+        } else {
             correcto[3] = false;
         }
         ponerClase(correcto[3], repcontrasenia);
@@ -74,10 +74,9 @@ function comprobarEnvio(boton, correcto, camposAComprobar) {
             envia = true;
         }
 
-        boton.disabled = envia;
-
     }
 
+    boton.disabled = envia;
 }
 
 function ponerClase(correcto, campo) {
@@ -86,7 +85,7 @@ function ponerClase(correcto, campo) {
         campo.classList.add("erroneo");
         campo.value = "";
         campo.placeholder = "dato erroneo";
-    } else{
+    } else {
         campo.classList.add("correcto");
     }
 }
@@ -94,7 +93,7 @@ function ponerClase(correcto, campo) {
 function comprobar(campo, expresion) {
     let clase = true;
 
-    if(campo.match(expresion)==null){
+    if (campo.match(expresion) == null) {
         clase = false;
     }
 
