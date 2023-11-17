@@ -22,7 +22,7 @@ function crearSelect(idSelect, arrayIdOpciones, arrayTextoOpciones, textoOpciona
         texto += "</select>";
 
     } else {
-        window.alert("Error al crear el select (Debe haber un id por cada option)");
+        texto = "Error al crear el select (Debe haber un id por cada option)";
     }
 
     return texto;
@@ -46,30 +46,30 @@ function crearChecks(idTable, arrayIdChecks, arrayTextoChecks) {
         texto += "</tr></table>";
 
     } else {
-        window.alert("Error al crear los checksbox (Debe haber un id por cada checkbox)");
+        texto = "Error al crear los checksbox (Debe haber un id por cada checkbox)";
     }
 
     return texto;
 }
 
-// Retorna un string con el texto necesario para poder crear una cookie con una clave y dos arrays para meter valores segun la propiedad que quieras
-// Ej: "clave= Dato:Valor, Dato:Valor"
+// Crea una cookie con una clave y dos arrays para meter valores segun la propiedad que quieras
+// Ej: "clave= Dato:Valor& Dato:Valor"
 function crearCookie(clave, arrayDatos, arrayValores) {
     let cookie = "";
 
     if (arrayDatos.length == arrayValores.length) {
-        cookie += clave + "="; //
+        cookie += `${clave}=`;
         for (let i = 0; i < arrayValores.length; i++) {
-            cookie += " " + arrayDatos[i] + ":" + arrayValores[i]; //
+            cookie += ` ${arrayDatos[i]}:${arrayValores[i]}`;
             if (arrayValores.length - 1 != i) {
-                cookie += ",";
+                cookie += "&";
             }
         }
     } else {
-        window.alert("Error al crear la cookie tiene que haber el mismo numero de propiedades que de valores");
+        cookie = "Error al crear la cookie tiene que haber el mismo numero de propiedades que de valores";
     }
 
-    return cookie;
+    document.cookie = cookie;
 }
 
 // Retorna un booleano si la clave existe en la cookie
@@ -98,10 +98,11 @@ function consultarCookie(clave) {
 
 // Retorna el valor del dato buscado de una cookie concreta (seria un string puedes sacarlo facilmente con la funcion consultarCookie)
 function consultarDatoCookie(cookie, dato) {
-    let datos = cookie.split(", ");
+    let datos = cookie.split("& ");
     let valor;
+    let buscar = `${dato}:`;
     for (let i = 0; i < datos.length; i++) {
-        if (datos[i].includes(dato)) { //
+        if (datos[i].includes(buscar)) { 
             valor = datos[i].split(":");
         }
     }

@@ -1,6 +1,3 @@
-
-// javi= nombre:javier, contraseña:123
-
 function main() {
     const camposAComprobar = 4;
     const enviar = document.querySelector('#enviar');
@@ -32,11 +29,12 @@ function main() {
     let textoCheck = crearChecks(idTable, arrayIdChecks, arrayTextoChecks);
 
     escribirSegunID("anionac",textoSelect);
+    const select = formulario.querySelector("#Anionacimiento");
     escribirSegunID("checksafi",textoCheck);
     
     let correcto = [];
 
-    let arrayPropiedades = ["nombre", "contrasenia"]; 
+    let arrayPropiedades = ["nombre", "contrasenia","año"]; 
 
     nombre.addEventListener("blur", function () {
         correcto[0] = comprobar(nombre.value, "^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$");
@@ -52,8 +50,10 @@ function main() {
             let cookie = consultarCookie(alias.value);
             let nombreCookie = consultarDatoCookie(cookie, "nombre");
             let contraseñaCookie = consultarDatoCookie(cookie, "contrasenia");
+            let añoCookie = consultarDatoCookie(cookie, "año");
             nombre.value = nombreCookie;
             contrasenia.value = contraseñaCookie;
+            select.selectedIndex = añoCookie;
         }
     });
 
@@ -74,9 +74,8 @@ function main() {
     });
 
     enviar.addEventListener("click", function () {
-        let arrayValores = [nombre.value, contrasenia.value];
-        let textoCookie = crearCookie(alias.value, arrayPropiedades, arrayValores);
-        document.cookie = textoCookie;
+        let arrayValores = [nombre.value, contrasenia.value, select.selectedIndex];
+        crearCookie(alias.value, arrayPropiedades, arrayValores);
     });
 
 }
@@ -95,7 +94,6 @@ function comprobarEnvio(boton, correcto, camposAComprobar) {
         boton.disabled = envia;
 
     }
-
 }
 
 function ponerClase(correcto, campo) {
