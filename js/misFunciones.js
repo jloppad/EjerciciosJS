@@ -3,6 +3,11 @@ function escribirSegunID(id, texto) {
     document.querySelector(`#${id}`).innerHTML = texto;
 }
 
+// Te permite poner una imagen con un src en un elemento img del html identificando su id
+function imagenSegundID(id, srcimagen) {
+    document.querySelector(`#${id}`).src = srcimagen;
+}
+
 // Retorna un string con el texto necesario para crear un select relleno
 function crearSelect(idSelect, arrayIdOpciones, arrayTextoOpciones, textoOpcional = undefined) {
     let texto = "";
