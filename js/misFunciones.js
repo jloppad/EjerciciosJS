@@ -113,3 +113,17 @@ function consultarDatoCookie(cookie, dato) {
     }
     return valor[1];
 }
+
+// Desmarca todos los checksbox de un formulario
+function desmarcarChecks(formulario) {
+    const checkboxes = formulario.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+}
+
+// Marca un checkbox de un formulario segun su id
+function marcarCheck(formulario, id) {
+    const checkbox = formulario.querySelector(`#${id}`);
+    checkbox.checked = true;
+}

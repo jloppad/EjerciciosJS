@@ -1,0 +1,28 @@
+body {
+    background: linear-gradient(rgb(255, 216, 43) 50%, white 90%);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+#formulario {
+    background: linear-gradient(rgb(255, 234, 143) 5%, white 20%);
+    width: 45em;
+    padding: 20px;
+    height: 60%;
+    margin-top: 5em;
+    position: relative;
+}
+
+#formulario img {
+    float: right;
+    width: 12em;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 2em;
+    color: rgb(202, 178, 68);
+}
