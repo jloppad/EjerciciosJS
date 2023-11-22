@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(rgb(255, 216, 43) 50%, white 90%);
+    background: linear-gradient(rgb(255, 181, 43) 50%, white 90%);
     margin: 0;
     display: flex;
     justify-content: center;
@@ -7,7 +7,7 @@ body {
 }
 
 #formulario {
-    background: linear-gradient(rgb(255, 234, 143) 5%, white 20%);
+    background: linear-gradient(rgb(255, 220, 143) 5%, white 20%);
     width: 45em;
     padding: 20px;
     height: 60%;
