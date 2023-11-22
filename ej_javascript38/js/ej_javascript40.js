@@ -26,35 +26,24 @@ function main() {
         'huelva': ['alajar', 'aljaraque', 'almonaster la Real', 'almonte', 'alosno', 'aracena', 'aroche', 'arroyomolinos de León', 'ayamonte', 'beas', 'berrocal', 'bollullos Par del Condado', 'bonares', 'cabezas Rubias', 'cala', 'calañas', 'campofrío', 'cañaveral de León', 'cartaya', 'castaño del Robledo', 'chucena', 'corteconcepción', 'cortegana', 'cortelazor', 'cumbres de Enmedio', 'cumbres de San Bartolomé', 'cumbres Mayores', 'el Almendro', 'el Campillo', 'el Cerro de Andévalo', 'el Granado', 'encinasola', 'escacena del Campo', 'fuenteheridos', 'galaroza', 'gibraleón', 'higuera de la Sierra', 'hinojales', 'hinojos', 'huelva', 'isla Cristina', 'jabugo', 'la Granada de Río-Tinto', 'la Nava', 'la Palma del Condado', 'lepe', 'linares de la Sierra', 'los Marines', 'lucena del Puerto', 'manzanilla', 'minas de Riotinto', 'moguer', 'nerva', 'niebla', 'palos de la Frontera', 'paterna del Campo', 'paymogo', 'puebla de Guzmán', 'puerto Moral', 'punta Umbría', 'rociana del Condado', 'rosal de la Frontera', 'san Bartolomé de la Torre', 'san Juan del Puerto', 'san Silvestre de Guzmán', 'sanlúcar de Guadiana', 'santa Ana la Real', 'santa Bárbara de Casa', 'santa Olalla del Cala', 'trigueros', 'valdelarco', 'valverde del Camino', 'villablanca', 'villalba del Alcor', 'villanueva de las Cruces', 'villanueva de los Castillejos', 'villarrasa', 'zalamea la Real', 'zufre']
     };
 
-    let pueblosMostrados = [];
-
     let textoCheck = crearChecks("checktabla", idprovinciasAndalucia, provinciasAndalucia);
-
+    
     escribirSegunID("checksprovincias", textoCheck);
-    setInterval(function() {
-        seleccionAleatoria(idprovinciasAndalucia, pueblosAndalucia, imagenesProvincia, pueblo, imgprovincia, pueblosMostrados);
-    }, 2000);
-    
-    
-    
-}
 
-function seleccionAleatoria(provincias, pueblosAndalucia, imagenesProvincia, pueblo, imgprovincia, pueblosMostrados) {
-    let puebloAleatorio = "";
-    let provinciaAleatoria = "";
+    pueblo.addEventListener("blur", function () {
+        let checkboxes = formulario.querySelectorAll('input[type="checkbox"]:checked');
+        let checkboxArray = provinciasSeleccionadas(Array.from(checkboxes));
+        let pueblo = event.target.value;
+        let provincia = puebloPerteneceProvincia(pueblo, pueblosAndalucia, checkboxArray);
 
-    while (!pueblosMostrados.includes(puebloAleatorio)) {
-        provinciaAleatoria = provincias[Math.floor(Math.random() * provincias.length)];
-        const pueblosProvincia = pueblosAndalucia[provinciaAleatoria];
-        puebloAleatorio = pueblosProvincia[Math.floor(Math.random() * pueblosProvincia.length)];
-        pueblosMostrados.push(puebloAleatorio);
-    }
+        if (provincia) {
+            imgprovincia.src = imagenesProvincia[provincia];
+            desmarcarChecks(formulario);
+            marcarCheck(formulario, provincia);
+        }
 
-    imgprovincia.src = imagenesProvincia[provinciaAleatoria];
-    desmarcarChecks(formulario);
-    marcarCheck(formulario, provinciaAleatoria);
-    pueblo.value = puebloAleatorio;
-    
+    });
+
 }
 
 function provinciasSeleccionadas(andalucia) {
@@ -65,16 +54,16 @@ function provinciasSeleccionadas(andalucia) {
     return provincias;
 }
 
-function puebloPerteneceProvincia(pueblo, andalucia) {
+function puebloPerteneceProvincia(pueblo, andalucia, provinciasSeleccionadas) {
     pueblo = pueblo.toLowerCase();
 
     for (const provincia in andalucia) {
-        if (andalucia[provincia].includes(pueblo)) {
+        if (andalucia[provincia].includes(pueblo) && provinciasSeleccionadas.includes(provincia)) {
             return provincia;
         }
     }
 
-    return false;
+    return "";
 }
 
 document.addEventListener("DOMContentLoaded", main);

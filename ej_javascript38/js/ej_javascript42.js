@@ -25,43 +25,44 @@ function main() {
         'granada': ['agron', 'alamedilla', 'albolote', 'albondón', 'albuñán', 'albuñol', 'albuñuelas', 'aldeire', 'alfacar', 'algarinejo', 'alhama de Granada', 'alhendin', 'alicún de Ortega', 'almegíjar', 'almuñécar', 'alpujarra de la Sierra', 'alquife', 'arenas del Rey', 'armilla', 'atarfe', 'baza', 'beas de Granada', 'beas de Guadix', 'benalúa', 'benalúa de las Villas', 'benamaurel', 'bérchules', 'bubión', 'busquístar', 'cacín', 'cádiar', 'cájar', 'calicasas', 'campotéjar', 'caniles', 'cáñar', 'capileira', 'carataunas', 'cástaras', 'castilléjar', 'castril', 'cenes de la Vega', 'chauchina', 'chimeneas', 'churriana de la Vega', 'cijuela', 'cogollos de Guadix', 'cogollos de la Vega', 'colomera', 'cortes de Baza', 'cortes y Graena', 'cuevas del Campo', 'cúllar', 'cúllar Vega', 'darro', 'dehesas de Guadix', 'dehesas Viejas', 'deifontes', 'diezma', 'dílar', 'dólar', 'dúdar', 'dúrcal', 'el Pinar', 'el Valle', 'escúzar', 'ferreira', 'fonelas', 'freila', 'fuente Vaqueros', 'galera', 'gobernador', 'gójar', 'gor', 'gorafe', 'granada', 'guadahortuna', 'guadix', 'gualchos', 'güejar Sierra', 'güevéjar', 'huélago', 'huéneja', 'huéscar', 'huétor de Santillán', 'huétor Tájar', 'huétor Vega', 'illora', 'itrabo', 'iznalloz', 'jayena', 'jerez del Marquesado', 'jete', 'jun', 'juviles', 'la Calahorra', 'la Malahá', 'la Peza', 'la Taha', 'la Zubia', 'láchar', 'lanjarón', 'lanteira', 'las Gabias', 'lecrín', 'lentegí', 'lobras', 'loja', 'los Guajares', 'lugros', 'lújar', 'maracena', 'marchal', 'moclín', 'molvízar', 'monachil', 'montefrío', 'montejícar', 'montillana', 'moraleda de Zafayona', 'morelábor', 'motril', 'murtas', 'nevada', 'nigüelas', 'nívar', 'ogíjares', 'orce', 'órgiva', 'otívar', 'padul', 'pampaneira', 'pedro Martínez', 'peligros', 'pinos Genil', 'pinos Puente', 'píñar', 'polícar', 'polopos', 'pórtugos', 'puebla de Don Fadrique', 'pulianas', 'purullena', 'quéntar', 'rubite', 'salar', 'salobreña', 'santa Cruz del Comercio', 'santa Fe', 'soportújar', 'sorvilán', 'torre-Cardela', 'torvizcón', 'trevélez', 'turón', 'ugíjar', 'valderrubio', 'valle del Zalabí', 'válor', 'vegas del Genil', 'vélez de Benaudalla', 'ventas de Huelma', 'villa de Otura', 'villamena', 'villanueva de las Torres', 'villanueva Mesía', 'víznar', 'zafarraya', 'zagra', 'zújar'],
         'huelva': ['alajar', 'aljaraque', 'almonaster la Real', 'almonte', 'alosno', 'aracena', 'aroche', 'arroyomolinos de León', 'ayamonte', 'beas', 'berrocal', 'bollullos Par del Condado', 'bonares', 'cabezas Rubias', 'cala', 'calañas', 'campofrío', 'cañaveral de León', 'cartaya', 'castaño del Robledo', 'chucena', 'corteconcepción', 'cortegana', 'cortelazor', 'cumbres de Enmedio', 'cumbres de San Bartolomé', 'cumbres Mayores', 'el Almendro', 'el Campillo', 'el Cerro de Andévalo', 'el Granado', 'encinasola', 'escacena del Campo', 'fuenteheridos', 'galaroza', 'gibraleón', 'higuera de la Sierra', 'hinojales', 'hinojos', 'huelva', 'isla Cristina', 'jabugo', 'la Granada de Río-Tinto', 'la Nava', 'la Palma del Condado', 'lepe', 'linares de la Sierra', 'los Marines', 'lucena del Puerto', 'manzanilla', 'minas de Riotinto', 'moguer', 'nerva', 'niebla', 'palos de la Frontera', 'paterna del Campo', 'paymogo', 'puebla de Guzmán', 'puerto Moral', 'punta Umbría', 'rociana del Condado', 'rosal de la Frontera', 'san Bartolomé de la Torre', 'san Juan del Puerto', 'san Silvestre de Guzmán', 'sanlúcar de Guadiana', 'santa Ana la Real', 'santa Bárbara de Casa', 'santa Olalla del Cala', 'trigueros', 'valdelarco', 'valverde del Camino', 'villablanca', 'villalba del Alcor', 'villanueva de las Cruces', 'villanueva de los Castillejos', 'villarrasa', 'zalamea la Real', 'zufre']
     };
-    let pueblosUtilizados = {
-        "almeria": [],
-        "cadiz": [],
-        "cordoba": [],
-        "granada": [],
-        "huelva": [],
-        "jaen": [],
-        "malaga": [],
-        "sevilla": []
-    }
+
+    let pueblosMostrados = [];
 
     let textoCheck = crearChecks("checktabla", idprovinciasAndalucia, provinciasAndalucia);
 
     escribirSegunID("checksprovincias", textoCheck);
-
-    pueblo.addEventListener("blur", function () {
-        let pueblo = event.target.value;
-
-        let provincia = puebloPerteneceProvincia(pueblo, pueblosAndalucia);
-
-        if (provincia) {
-            if (pueblosUtilizados[provincia].length < 2) {
-                imgprovincia.src = imagenesProvincia[provincia];
-                desmarcarChecks(formulario);
-                marcarCheck(formulario, provincia);
-                añadirPueblo(pueblosUtilizados, provincia, pueblo);
-            }
-        }
-
-    });
-
+    setInterval(function() {
+        seleccionAleatoria(idprovinciasAndalucia, pueblosAndalucia, imagenesProvincia, pueblo, imgprovincia, pueblosMostrados);
+    }, 2000);
+    
+    
+    
 }
 
-function añadirPueblo(pueblos, provincia, pueblo) {
-    if (!pueblos[provincia].includes(pueblo)) {
-        pueblos[provincia].push(pueblo);
+function seleccionAleatoria(provincias, pueblosAndalucia, imagenesProvincia, pueblo, imgprovincia, pueblosMostrados) {
+    let puebloAleatorio = "";
+    let provinciaAleatoria = "";
+
+    while (!pueblosMostrados.includes(puebloAleatorio)) {
+        provinciaAleatoria = provincias[Math.floor(Math.random() * provincias.length)];
+        const pueblosProvincia = pueblosAndalucia[provinciaAleatoria];
+        puebloAleatorio = pueblosProvincia[Math.floor(Math.random() * pueblosProvincia.length)];
+        pueblosMostrados.push(puebloAleatorio);
     }
+
+    imgprovincia.src = imagenesProvincia[provinciaAleatoria];
+    desmarcarChecks(formulario);
+    marcarCheck(formulario, provinciaAleatoria);
+    pueblo.value = puebloAleatorio;
+    
+}
+
+function provinciasSeleccionadas(andalucia) {
+    let provincias = [];
+    for (const provincia in andalucia) {
+        provincias.push(andalucia[provincia].id);
+    }
+    return provincias;
 }
 
 function puebloPerteneceProvincia(pueblo, andalucia) {
@@ -73,7 +74,7 @@ function puebloPerteneceProvincia(pueblo, andalucia) {
         }
     }
 
-    return false;
+    return "";
 }
 
 document.addEventListener("DOMContentLoaded", main);
