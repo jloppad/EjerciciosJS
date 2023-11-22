@@ -45,6 +45,7 @@ function main() {
 
 }
 
+// Devuelve la clave de un array asociativo del elemento buscado (devuelve la clave del primer elemnto encontrado)
 function puebloPerteneceProvincia(pueblo, andalucia) {
     pueblo = pueblo.toLowerCase();
 
