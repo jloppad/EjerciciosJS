@@ -56,10 +56,10 @@ function provinciasSeleccionadas(andalucia) {
 
 function puebloPerteneceProvincia(pueblo, andalucia, provinciasSeleccionadas) {
     pueblo = pueblo.toLowerCase();
-
-    for (const provincia in andalucia) {
-        if (andalucia[provincia].includes(pueblo) && provinciasSeleccionadas.includes(provincia)) {
-            return provincia;
+    
+    for (const provincia in provinciasSeleccionadas) {
+        if (andalucia[provinciasSeleccionadas[provincia]].includes(pueblo)) {
+            return provinciasSeleccionadas[provincia];
         }
     }
 
