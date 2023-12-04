@@ -8,6 +8,17 @@ function imagenSegundID(id, srcimagen) {
     document.querySelector(`#${id}`).src = srcimagen;
 }
 
+// 
+function crearTabla(filas, columnas, {idtabla}) {
+    
+    return tabla;
+}
+
+// 
+function rellenarTabla(idtabla, [relleno], rellenar) {
+    
+}
+
 // Retorna un string con el texto necesario para crear un select relleno
 function crearSelect(idSelect, arrayIdOpciones, arrayTextoOpciones, textoOpcional = undefined) {
     let texto = "";
