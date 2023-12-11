@@ -1,0 +1,9 @@
+createElement
+Clases -> metodos, atributos
+    function alumno(nombre){
+        this.nombre = nombre
+        this.saludar = function(){console.log("Hola")}
+    }
+    pepe = new alumno("pepito")
+    pepe.saludar()
+    
