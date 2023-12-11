@@ -20,7 +20,7 @@ function crearTabla(filas, columnas, idtabla) {
         }
     }
     
-    document.body.appendChild(tabla);
+    return tabla;
     
 }
 
@@ -33,7 +33,7 @@ function rellenarTabla(idtabla, relleno, valorPorDefecto) {
             for (let j = 0; j < filas[i].cells.length; j++) {
                 let indice = (i * filas[i].cells.length) + j;
                 let contenido = (indice < relleno.length) ? relleno[indice] : valorPorDefecto;
-                
+
                 let celda = filas[i].cells[j];
                 celda.innerHTML = contenido;
             }

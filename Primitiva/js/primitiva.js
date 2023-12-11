@@ -17,7 +17,8 @@ function main() {
         numeros.push(`<input type="button" value="${i}">`);
     }
 
-    crearTabla(5, 10, "numeros");
+    let tabla = crearTabla(5, 10, "numeros");
+    document.body.appendChild(tabla);
     rellenarTabla('numeros', numeros, "");
 
     let botones = document.querySelectorAll("table#numeros input[type=button]");
