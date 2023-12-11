@@ -27,13 +27,14 @@ function crearTabla(filas, columnas, idtabla) {
 // Rellena una tabla existente con un array de datos
 function rellenarTabla(idtabla, relleno, valorPorDefecto) {
     let tabla = document.getElementById(idtabla);
-
+    let filas = tabla.rows;
     if (tabla) {
-        for (let i = 0; i < tabla.rows.length; i++) {
-            for (let j = 0; j < tabla.rows[i].cells.length; j++) {
-                let indice = (i * tabla.rows[i].cells.length) + j;
+        for (let i = 0; i < filas.length; i++) {
+            for (let j = 0; j < filas[i].cells.length; j++) {
+                let indice = (i * filas[i].cells.length) + j;
                 let contenido = (indice < relleno.length) ? relleno[indice] : valorPorDefecto;
-                let celda = tabla.rows[i].cells[j];
+                
+                let celda = filas[i].cells[j];
                 celda.innerHTML = contenido;
             }
         }
