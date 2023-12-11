@@ -1,0 +1,27 @@
+body {
+    text-align: center;
+}
+
+table#numeros {
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+    height: 40vh;
+    margin-top: 2%;
+}
+
+table#numeros input {
+    width: 100%;
+    height: 100%;
+}
+
+.seleccionado {
+    background-color: rgb(252, 82, 82);
+}
+
+#guardar {
+    margin-top: 2%;
+    width: 10%;
+    height: 10vh;
+    font-size: large;
+}

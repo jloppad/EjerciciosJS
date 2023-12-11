@@ -8,15 +8,38 @@ function imagenSegundID(id, srcimagen) {
     document.querySelector(`#${id}`).src = srcimagen;
 }
 
-// 
-function crearTabla(filas, columnas, {idtabla}) {
+// Crea una tabla con el número especificado de filas y columnas, y un id
+function crearTabla(filas, columnas, idtabla) {
+    let tabla = document.createElement('table');
+    tabla.id = idtabla;
+
+    for (let i = 0; i < filas; i++) {
+        let fila = tabla.insertRow(i);
+        for (let j = 0; j < columnas; j++) {
+            fila.insertCell(j);
+        }
+    }
     
-    return tabla;
+    document.body.appendChild(tabla);
+    
 }
 
-// 
-function rellenarTabla(idtabla, [relleno], rellenar) {
-    
+// Rellena una tabla existente con un array de datos
+function rellenarTabla(idtabla, relleno, valorPorDefecto) {
+    let tabla = document.getElementById(idtabla);
+
+    if (tabla) {
+        for (let i = 0; i < tabla.rows.length; i++) {
+            for (let j = 0; j < tabla.rows[i].cells.length; j++) {
+                let indice = (i * tabla.rows[i].cells.length) + j;
+                let contenido = (indice < relleno.length) ? relleno[indice] : valorPorDefecto;
+                let celda = tabla.rows[i].cells[j];
+                celda.innerHTML = contenido;
+            }
+        }
+    } else {
+        console.error('La tabla con el ID especificado no existe.');
+    }
 }
 
 // Retorna un string con el texto necesario para crear un select relleno
