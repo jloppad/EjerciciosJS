@@ -62,7 +62,7 @@ function crearSelect(idSelect, arrayIdOpciones, arrayTextoOpciones, textoOpciona
         texto += "</select>";
 
     } else {
-        texto = "Error al crear el select (Debe haber un id por cada option)";
+        console.error("Error al crear el select (Debe haber un id por cada option)");
     }
 
     return texto;
@@ -86,7 +86,7 @@ function crearChecks(idTable, arrayIdChecks, arrayTextoChecks) {
         texto += "</tr></table>";
 
     } else {
-        texto = "Error al crear los checksbox (Debe haber un id por cada checkbox)";
+        console.error("Error al crear los checksbox (Debe haber un id por cada checkbox)");
     }
 
     return texto;
@@ -106,7 +106,7 @@ function crearCookie(clave, arrayDatos, arrayValores) {
             }
         }
     } else {
-        cookie = "Error al crear la cookie tiene que haber el mismo numero de propiedades que de valores";
+        console.error("Error al crear la cookie tiene que haber el mismo numero de propiedades que de valores");
     }
 
     document.cookie = cookie;
